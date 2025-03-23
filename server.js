@@ -37,8 +37,16 @@ function generateCustomShortCode() {
 
 // ✅ Function to check if the request is from an API client (like Postman)
 function isApiRequest(req) {
-  return req.headers['user-agent'] && req.headers['user-agent'].includes('Postman');
+  return req.accepts("json")
 }
+
+
+
+// const isApiRequest = (req) => {
+//     return req.headers['content-type']?.includes('application/json') || 
+//            req.headers['accept']?.includes('application/json');
+//   };
+
 
 // 🏠 Home page with URL input
 app.get('/', (req, res) => {
